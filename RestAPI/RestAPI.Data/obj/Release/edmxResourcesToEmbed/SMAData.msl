@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SaleMobileAssistantModelStoreContainer" CdmEntityContainer="SaleMobileAssistantEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="SaleMobileAssistantModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="EmplID" ColumnName="EmplID" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="SaleMobileAssistantModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="CompName" ColumnName="CompName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="SaleMobileAssistantModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="EmplID" ColumnName="EmplID" />
+          <ScalarProperty Name="CustID" ColumnName="CustID" />
+          <ScalarProperty Name="CustName" ColumnName="CustName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="SaleMobileAssistantModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="ETypeID" ColumnName="ETypeID" />
+          <ScalarProperty Name="EmplID" ColumnName="EmplID" />
+          <ScalarProperty Name="EmplName" ColumnName="EmplName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
+          <ScalarProperty Name="DateIn" ColumnName="DateIn" />
+          <ScalarProperty Name="DateOut" ColumnName="DateOut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeTypes">
+      <EntityTypeMapping TypeName="SaleMobileAssistantModel.EmployeeType">
+        <MappingFragment StoreEntitySet="EmployeeType">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="ETypeID" ColumnName="ETypeID" />
+          <ScalarProperty Name="ETypeDescription" ColumnName="ETypeDescription" />
+          <ScalarProperty Name="Commissionable" ColumnName="Commissionable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="SaleMobileAssistantModel.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetail">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="MyOrderID" ColumnName="MyOrderID" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="OrderLine" ColumnName="OrderLine" />
+          <ScalarProperty Name="LineType" ColumnName="LineType" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="SellingQuantity" ColumnName="SellingQuantity" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="SaleMobileAssistantModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="MyOrderID" ColumnName="MyOrderID" />
+          <ScalarProperty Name="OrdeID" ColumnName="OrdeID" />
+          <ScalarProperty Name="CustID" ColumnName="CustID" />
+          <ScalarProperty Name="EmplID" ColumnName="EmplID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="NeedByDate" ColumnName="NeedByDate" />
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="SaleMobileAssistantModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="PGroupID" ColumnName="PGroupID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="UOM" ColumnName="UOM" />
+          <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductGroups">
+      <EntityTypeMapping TypeName="SaleMobileAssistantModel.ProductGroup">
+        <MappingFragment StoreEntitySet="ProductGroup">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="PGroupID" ColumnName="PGroupID" />
+          <ScalarProperty Name="PGdescription" ColumnName="PGdescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductInSites">
+      <EntityTypeMapping TypeName="SaleMobileAssistantModel.ProductInSite">
+        <MappingFragment StoreEntitySet="ProductInSite">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="Quatity" ColumnName="Quatity" />
+          <ScalarProperty Name="UOM" ColumnName="UOM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoutePlans">
+      <EntityTypeMapping TypeName="SaleMobileAssistantModel.RoutePlan">
+        <MappingFragment StoreEntitySet="RoutePlan">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="EmplID" ColumnName="EmplID" />
+          <ScalarProperty Name="CustID" ColumnName="CustID" />
+          <ScalarProperty Name="DatePlan" ColumnName="DatePlan" />
+          <ScalarProperty Name="Prioritize" ColumnName="Prioritize" />
+          <ScalarProperty Name="Visited" ColumnName="Visited" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleTargets">
+      <EntityTypeMapping TypeName="SaleMobileAssistantModel.SaleTarget">
+        <MappingFragment StoreEntitySet="SaleTarget">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmplID" ColumnName="EmplID" />
+          <ScalarProperty Name="PeriodTarget" ColumnName="PeriodTarget" />
+          <ScalarProperty Name="YearTarget" ColumnName="YearTarget" />
+          <ScalarProperty Name="TargetQty" ColumnName="TargetQty" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sites">
+      <EntityTypeMapping TypeName="SaleMobileAssistantModel.Site">
+        <MappingFragment StoreEntitySet="Site">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusTypes">
+      <EntityTypeMapping TypeName="SaleMobileAssistantModel.StatusType">
+        <MappingFragment StoreEntitySet="StatusType">
+          <ScalarProperty Name="STypeID" ColumnName="STypeID" />
+          <ScalarProperty Name="STypeName" ColumnName="STypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

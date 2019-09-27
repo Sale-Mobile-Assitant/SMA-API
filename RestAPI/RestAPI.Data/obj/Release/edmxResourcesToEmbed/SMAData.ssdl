@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SaleMobileAssistantModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="CompID" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CompID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="bit" />
+    <Property Name="EmplID" Type="nvarchar" MaxLength="8" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompID" />
+    </Key>
+    <Property Name="CompID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="CompName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address3" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Province" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNum" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ConnectionConfig">
+          <Property Name="EpicorRestAPIpath" Type="nvarchar" MaxLength="200" />
+          <Property Name="EpicorUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="EpicorPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="EpicorCompany" Type="nvarchar" MaxLength="8" />
+        </EntityType>-->
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CompID" />
+      <PropertyRef Name="CustID" />
+    </Key>
+    <Property Name="CompID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="EmplID" Type="nvarchar" MaxLength="8" />
+    <Property Name="CustID" Type="int" Nullable="false" />
+    <Property Name="CustName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address3" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNum" Type="nvarchar" MaxLength="20" />
+    <Property Name="Discount" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="CompID" />
+      <PropertyRef Name="EmplID" />
+    </Key>
+    <Property Name="CompID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ETypeID" Type="nvarchar" MaxLength="20" />
+    <Property Name="EmplID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="EmplName" Type="nvarchar" MaxLength="30" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address3" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNum" Type="nvarchar" MaxLength="20" />
+    <Property Name="DateIn" Type="date" />
+    <Property Name="DateOut" Type="date" />
+  </EntityType>
+  <EntityType Name="EmployeeType">
+    <Key>
+      <PropertyRef Name="CompID" />
+      <PropertyRef Name="ETypeID" />
+    </Key>
+    <Property Name="CompID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ETypeID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ETypeDescription" Type="nvarchar" MaxLength="30" />
+    <Property Name="Commissionable" Type="bit" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="CompID" />
+      <PropertyRef Name="SiteID" />
+      <PropertyRef Name="MyOrderID" />
+      <PropertyRef Name="ProdID" />
+    </Key>
+    <Property Name="CompID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="SiteID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="MyOrderID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="OrderNum" Type="int" />
+    <Property Name="OrderLine" Type="int" />
+    <Property Name="LineType" Type="nvarchar" MaxLength="20" />
+    <Property Name="ProdID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SellingQuantity" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="CompID" />
+      <PropertyRef Name="MyOrderID" />
+    </Key>
+    <Property Name="CompID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="MyOrderID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="OrdeID" Type="int" />
+    <Property Name="CustID" Type="int" />
+    <Property Name="EmplID" Type="nvarchar" MaxLength="8" />
+    <Property Name="OrderDate" Type="date" />
+    <Property Name="NeedByDate" Type="date" />
+    <Property Name="RequestDate" Type="date" />
+    <Property Name="OrderStatus" Type="int" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="CompID" />
+      <PropertyRef Name="ProdID" />
+    </Key>
+    <Property Name="CompID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="PGroupID" Type="nvarchar" MaxLength="8" />
+    <Property Name="ProdID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProdName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="UOM" Type="varchar" MaxLength="6" />
+    <Property Name="DateUpdate" Type="date" />
+  </EntityType>
+  <EntityType Name="ProductGroup">
+    <Key>
+      <PropertyRef Name="CompID" />
+      <PropertyRef Name="PGroupID" />
+    </Key>
+    <Property Name="CompID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="PGroupID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="PGdescription" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="ProductInSite">
+    <Key>
+      <PropertyRef Name="CompID" />
+      <PropertyRef Name="SiteID" />
+      <PropertyRef Name="ProdID" />
+    </Key>
+    <Property Name="CompID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="SiteID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ProdID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Quatity" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="UOM" Type="nchar" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="RoutePlan">
+    <Key>
+      <PropertyRef Name="CompID" />
+      <PropertyRef Name="EmplID" />
+      <PropertyRef Name="CustID" />
+      <PropertyRef Name="DatePlan" />
+    </Key>
+    <Property Name="CompID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="EmplID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="CustID" Type="int" Nullable="false" />
+    <Property Name="DatePlan" Type="date" Nullable="false" />
+    <Property Name="Prioritize" Type="int" />
+    <Property Name="Visited" Type="bit" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="SaleTarget">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CompID" Type="nvarchar" MaxLength="8" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmplID" Type="nvarchar" MaxLength="8" />
+    <Property Name="PeriodTarget" Type="int" />
+    <Property Name="YearTarget" Type="int" />
+    <Property Name="TargetQty" Type="int" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Site">
+    <Key>
+      <PropertyRef Name="CompID" />
+      <PropertyRef Name="SiteID" />
+    </Key>
+    <Property Name="CompID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="SiteID" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="SiteName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address3" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Province" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNum" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="StatusType">
+    <Key>
+      <PropertyRef Name="STypeID" />
+    </Key>
+    <Property Name="STypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Account__4AB81AF0">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="EmplID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="EmplID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Customer__4222D4EF">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="EmplID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="EmplID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__3F466844">
+    <End Role="EmployeeType" Type="Self.EmployeeType" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeType">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="ETypeID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="ETypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeT__CompI__3C69FB99">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="EmployeeType" Type="Self.EmployeeType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompID" />
+      </Principal>
+      <Dependent Role="EmployeeType">
+        <PropertyRef Name="CompID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderDetail__5812160E">
+    <End Role="ProductInSite" Type="Self.ProductInSite" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInSite">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="SiteID" />
+        <PropertyRef Name="ProdID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="SiteID" />
+        <PropertyRef Name="ProdID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderDetail__59063A47">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="MyOrderID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="MyOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__534D60F1">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="CustID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__5441852A">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="EmplID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="EmplID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__OrderSta__5535A963">
+    <End Role="StatusType" Type="Self.StatusType" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusType">
+        <PropertyRef Name="STypeID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__47DBAE45">
+    <End Role="ProductGroup" Type="Self.ProductGroup" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductGroup">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="PGroupID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="PGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductGr__CompI__44FF419A">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="ProductGroup" Type="Self.ProductGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompID" />
+      </Principal>
+      <Dependent Role="ProductGroup">
+        <PropertyRef Name="CompID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductInSite__4D94879B">
+    <End Role="Site" Type="Self.Site" Multiplicity="1" />
+    <End Role="ProductInSite" Type="Self.ProductInSite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="SiteID" />
+      </Principal>
+      <Dependent Role="ProductInSite">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="SiteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductInSite__4E88ABD4">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ProductInSite" Type="Self.ProductInSite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="ProdID" />
+      </Principal>
+      <Dependent Role="ProductInSite">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="ProdID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RoutePlan__5BE2A6F2">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="RoutePlan" Type="Self.RoutePlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="RoutePlan">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="CustID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RoutePlan__5CD6CB2B">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="RoutePlan" Type="Self.RoutePlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="EmplID" />
+      </Principal>
+      <Dependent Role="RoutePlan">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="EmplID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SaleTarget__5FB337D6">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="SaleTarget" Type="Self.SaleTarget" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="EmplID" />
+      </Principal>
+      <Dependent Role="SaleTarget">
+        <PropertyRef Name="CompID" />
+        <PropertyRef Name="EmplID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Site__CompID__398D8EEE">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Site" Type="Self.Site" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompID" />
+      </Principal>
+      <Dependent Role="Site">
+        <PropertyRef Name="CompID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SaleMobileAssistantModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeType" EntityType="Self.EmployeeType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductGroup" EntityType="Self.ProductGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductInSite" EntityType="Self.ProductInSite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoutePlan" EntityType="Self.RoutePlan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleTarget" EntityType="Self.SaleTarget" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Site" EntityType="Self.Site" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusType" EntityType="Self.StatusType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Account__4AB81AF0" Association="Self.FK__Account__4AB81AF0">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Customer__4222D4EF" Association="Self.FK__Customer__4222D4EF">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__3F466844" Association="Self.FK__Employee__3F466844">
+      <End Role="EmployeeType" EntitySet="EmployeeType" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeT__CompI__3C69FB99" Association="Self.FK__EmployeeT__CompI__3C69FB99">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="EmployeeType" EntitySet="EmployeeType" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderDetail__5812160E" Association="Self.FK__OrderDetail__5812160E">
+      <End Role="ProductInSite" EntitySet="ProductInSite" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderDetail__59063A47" Association="Self.FK__OrderDetail__59063A47">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__534D60F1" Association="Self.FK__Orders__534D60F1">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__5441852A" Association="Self.FK__Orders__5441852A">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__OrderSta__5535A963" Association="Self.FK__Orders__OrderSta__5535A963">
+      <End Role="StatusType" EntitySet="StatusType" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__47DBAE45" Association="Self.FK__Product__47DBAE45">
+      <End Role="ProductGroup" EntitySet="ProductGroup" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductGr__CompI__44FF419A" Association="Self.FK__ProductGr__CompI__44FF419A">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="ProductGroup" EntitySet="ProductGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductInSite__4D94879B" Association="Self.FK__ProductInSite__4D94879B">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="ProductInSite" EntitySet="ProductInSite" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductInSite__4E88ABD4" Association="Self.FK__ProductInSite__4E88ABD4">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductInSite" EntitySet="ProductInSite" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RoutePlan__5BE2A6F2" Association="Self.FK__RoutePlan__5BE2A6F2">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="RoutePlan" EntitySet="RoutePlan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RoutePlan__5CD6CB2B" Association="Self.FK__RoutePlan__5CD6CB2B">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="RoutePlan" EntitySet="RoutePlan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SaleTarget__5FB337D6" Association="Self.FK__SaleTarget__5FB337D6">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="SaleTarget" EntitySet="SaleTarget" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Site__CompID__398D8EEE" Association="Self.FK__Site__CompID__398D8EEE">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Site" EntitySet="Site" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

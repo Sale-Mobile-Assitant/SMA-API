@@ -1,0 +1,6 @@
+D:\Đồ Án Nghành\Sale Mobile Assitant\Web Api\RestAPI\EpicorData\bin\Debug\EpicorData.dll
+D:\Đồ Án Nghành\Sale Mobile Assitant\Web Api\RestAPI\EpicorData\bin\Debug\EpicorData.pdb
+D:\Đồ Án Nghành\Sale Mobile Assitant\Web Api\RestAPI\EpicorData\obj\Debug\EpicorData.csprojAssemblyReference.cache
+D:\Đồ Án Nghành\Sale Mobile Assitant\Web Api\RestAPI\EpicorData\obj\Debug\EpicorData.csproj.CoreCompileInputs.cache
+D:\Đồ Án Nghành\Sale Mobile Assitant\Web Api\RestAPI\EpicorData\obj\Debug\EpicorData.dll
+D:\Đồ Án Nghành\Sale Mobile Assitant\Web Api\RestAPI\EpicorData\obj\Debug\EpicorData.pdb
