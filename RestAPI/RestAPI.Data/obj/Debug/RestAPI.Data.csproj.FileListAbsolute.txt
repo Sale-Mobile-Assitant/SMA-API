@@ -57,4 +57,3 @@ D:\Đồ Án Nghành\Sale Mobile Assitant\Web Api\RestAPI\RestAPI.Data\obj\Debug
 D:\Đồ Án Nghành\Sale Mobile Assitant\Web Api\RestAPI\RestAPI.Data\obj\Debug\RestAPI.Data.csproj.CopyComplete
 D:\Đồ Án Nghành\Sale Mobile Assitant\Web Api\RestAPI\RestAPI.Data\obj\Debug\RestAPI.Data.dll
 D:\Đồ Án Nghành\Sale Mobile Assitant\Web Api\RestAPI\RestAPI.Data\obj\Debug\RestAPI.Data.pdb
-D:\Đồ Án Nghành\Sale Mobile Assitant\Web Api\RestAPI\RestAPI.Data\obj\Debug\RestAPI.Data.csprojAssemblyReference.cache

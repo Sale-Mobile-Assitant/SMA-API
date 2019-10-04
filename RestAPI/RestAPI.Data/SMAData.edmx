@@ -97,7 +97,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="LineType" Type="nvarchar" MaxLength="20" />
           <Property Name="ProdID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="SellingQuantity" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="UnitPrice" Type="float" />
         </EntityType>
         <EntityType Name="Orders">
           <Key>
@@ -123,7 +123,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="PGroupID" Type="nvarchar" MaxLength="8" />
           <Property Name="ProdID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ProdName" Type="nvarchar" MaxLength="1000" />
-          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="UnitPrice" Type="float" />
           <Property Name="UOM" Type="varchar" MaxLength="6" />
           <Property Name="DateUpdate" Type="date" />
         </EntityType>
@@ -145,8 +145,8 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="CompID" Type="nvarchar" MaxLength="8" Nullable="false" />
           <Property Name="SiteID" Type="nvarchar" MaxLength="8" Nullable="false" />
           <Property Name="ProdID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Quatity" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="UOM" Type="nchar" MaxLength="6" />
+          <Property Name="Quatity" Type="float" />
+          <Property Name="UOM" Type="varchar" MaxLength="6" />
         </EntityType>
         <EntityType Name="RoutePlan">
           <Key>
@@ -197,7 +197,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="STypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="STypeName" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__Account__4AB81AF0">
+        <Association Name="FK__Account__4D94879B">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -251,7 +251,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDetail__5812160E">
+        <Association Name="FK__OrderDetail__5AEE82B9">
           <End Role="ProductInSite" Type="Self.ProductInSite" Multiplicity="1" />
           <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -267,7 +267,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDetail__59063A47">
+        <Association Name="FK__OrderDetail__5BE2A6F2">
           <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
           <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -281,7 +281,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__534D60F1">
+        <Association Name="FK__Orders__5629CD9C">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -295,7 +295,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__5441852A">
+        <Association Name="FK__Orders__571DF1D5">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -309,7 +309,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__OrderSta__5535A963">
+        <Association Name="FK__Orders__OrderSta__5812160E">
           <End Role="StatusType" Type="Self.StatusType" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -321,7 +321,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Product__47DBAE45">
+        <Association Name="FK__Product__4AB81AF0">
           <End Role="ProductGroup" Type="Self.ProductGroup" Multiplicity="0..1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -335,7 +335,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductGr__CompI__44FF419A">
+        <Association Name="FK__ProductGr__CompI__47DBAE45">
           <End Role="Company" Type="Self.Company" Multiplicity="1" />
           <End Role="ProductGroup" Type="Self.ProductGroup" Multiplicity="*" />
           <ReferentialConstraint>
@@ -347,7 +347,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductInSite__4D94879B">
+        <Association Name="FK__ProductInSite__5070F446">
           <End Role="Site" Type="Self.Site" Multiplicity="1" />
           <End Role="ProductInSite" Type="Self.ProductInSite" Multiplicity="*" />
           <ReferentialConstraint>
@@ -361,7 +361,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductInSite__4E88ABD4">
+        <Association Name="FK__ProductInSite__5165187F">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="ProductInSite" Type="Self.ProductInSite" Multiplicity="*" />
           <ReferentialConstraint>
@@ -375,7 +375,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RoutePlan__5BE2A6F2">
+        <Association Name="FK__RoutePlan__5EBF139D">
           <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
           <End Role="RoutePlan" Type="Self.RoutePlan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -389,7 +389,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RoutePlan__5CD6CB2B">
+        <Association Name="FK__RoutePlan__5FB337D6">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="RoutePlan" Type="Self.RoutePlan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -403,7 +403,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SaleTarget__5FB337D6">
+        <Association Name="FK__SaleTarget__628FA481">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="SaleTarget" Type="Self.SaleTarget" Multiplicity="*" />
           <ReferentialConstraint>
@@ -444,7 +444,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <EntitySet Name="SaleTarget" EntityType="Self.SaleTarget" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Site" EntityType="Self.Site" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StatusType" EntityType="Self.StatusType" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Account__4AB81AF0" Association="Self.FK__Account__4AB81AF0">
+          <AssociationSet Name="FK__Account__4D94879B" Association="Self.FK__Account__4D94879B">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
@@ -460,51 +460,51 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             <End Role="Company" EntitySet="Company" />
             <End Role="EmployeeType" EntitySet="EmployeeType" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDetail__5812160E" Association="Self.FK__OrderDetail__5812160E">
+          <AssociationSet Name="FK__OrderDetail__5AEE82B9" Association="Self.FK__OrderDetail__5AEE82B9">
             <End Role="ProductInSite" EntitySet="ProductInSite" />
             <End Role="OrderDetail" EntitySet="OrderDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDetail__59063A47" Association="Self.FK__OrderDetail__59063A47">
+          <AssociationSet Name="FK__OrderDetail__5BE2A6F2" Association="Self.FK__OrderDetail__5BE2A6F2">
             <End Role="Orders" EntitySet="Orders" />
             <End Role="OrderDetail" EntitySet="OrderDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__534D60F1" Association="Self.FK__Orders__534D60F1">
+          <AssociationSet Name="FK__Orders__5629CD9C" Association="Self.FK__Orders__5629CD9C">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__5441852A" Association="Self.FK__Orders__5441852A">
+          <AssociationSet Name="FK__Orders__571DF1D5" Association="Self.FK__Orders__571DF1D5">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__OrderSta__5535A963" Association="Self.FK__Orders__OrderSta__5535A963">
+          <AssociationSet Name="FK__Orders__OrderSta__5812160E" Association="Self.FK__Orders__OrderSta__5812160E">
             <End Role="StatusType" EntitySet="StatusType" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Product__47DBAE45" Association="Self.FK__Product__47DBAE45">
+          <AssociationSet Name="FK__Product__4AB81AF0" Association="Self.FK__Product__4AB81AF0">
             <End Role="ProductGroup" EntitySet="ProductGroup" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductGr__CompI__44FF419A" Association="Self.FK__ProductGr__CompI__44FF419A">
+          <AssociationSet Name="FK__ProductGr__CompI__47DBAE45" Association="Self.FK__ProductGr__CompI__47DBAE45">
             <End Role="Company" EntitySet="Company" />
             <End Role="ProductGroup" EntitySet="ProductGroup" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductInSite__4D94879B" Association="Self.FK__ProductInSite__4D94879B">
+          <AssociationSet Name="FK__ProductInSite__5070F446" Association="Self.FK__ProductInSite__5070F446">
             <End Role="Site" EntitySet="Site" />
             <End Role="ProductInSite" EntitySet="ProductInSite" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductInSite__4E88ABD4" Association="Self.FK__ProductInSite__4E88ABD4">
+          <AssociationSet Name="FK__ProductInSite__5165187F" Association="Self.FK__ProductInSite__5165187F">
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductInSite" EntitySet="ProductInSite" />
           </AssociationSet>
-          <AssociationSet Name="FK__RoutePlan__5BE2A6F2" Association="Self.FK__RoutePlan__5BE2A6F2">
+          <AssociationSet Name="FK__RoutePlan__5EBF139D" Association="Self.FK__RoutePlan__5EBF139D">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="RoutePlan" EntitySet="RoutePlan" />
           </AssociationSet>
-          <AssociationSet Name="FK__RoutePlan__5CD6CB2B" Association="Self.FK__RoutePlan__5CD6CB2B">
+          <AssociationSet Name="FK__RoutePlan__5FB337D6" Association="Self.FK__RoutePlan__5FB337D6">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="RoutePlan" EntitySet="RoutePlan" />
           </AssociationSet>
-          <AssociationSet Name="FK__SaleTarget__5FB337D6" Association="Self.FK__SaleTarget__5FB337D6">
+          <AssociationSet Name="FK__SaleTarget__628FA481" Association="Self.FK__SaleTarget__628FA481">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="SaleTarget" EntitySet="SaleTarget" />
           </AssociationSet>
@@ -530,7 +530,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="Type" Type="Boolean" />
           <Property Name="EmplID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
           <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__Account__4AB81AF0" FromRole="Account" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Account__4D94879B" FromRole="Account" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
@@ -545,7 +545,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="EmployeeTypes" Relationship="Self.FK__EmployeeT__CompI__3C69FB99" FromRole="Company" ToRole="EmployeeType" />
-          <NavigationProperty Name="ProductGroups" Relationship="Self.FK__ProductGr__CompI__44FF419A" FromRole="Company" ToRole="ProductGroup" />
+          <NavigationProperty Name="ProductGroups" Relationship="Self.FK__ProductGr__CompI__47DBAE45" FromRole="Company" ToRole="ProductGroup" />
           <NavigationProperty Name="Sites" Relationship="Self.FK__Site__CompID__398D8EEE" FromRole="Company" ToRole="Site" />
         </EntityType>
         <EntityType Name="Customer">
@@ -565,8 +565,8 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="PhoneNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Discount" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__Customer__4222D4EF" FromRole="Customer" ToRole="Employee" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__534D60F1" FromRole="Customer" ToRole="Orders" />
-          <NavigationProperty Name="RoutePlans" Relationship="Self.FK__RoutePlan__5BE2A6F2" FromRole="Customer" ToRole="RoutePlan" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__5629CD9C" FromRole="Customer" ToRole="Orders" />
+          <NavigationProperty Name="RoutePlans" Relationship="Self.FK__RoutePlan__5EBF139D" FromRole="Customer" ToRole="RoutePlan" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -583,12 +583,12 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="PhoneNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="DateIn" Type="DateTime" Precision="0" />
           <Property Name="DateOut" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Accounts" Relationship="Self.FK__Account__4AB81AF0" FromRole="Employee" ToRole="Account" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK__Account__4D94879B" FromRole="Employee" ToRole="Account" />
           <NavigationProperty Name="Customers" Relationship="Self.FK__Customer__4222D4EF" FromRole="Employee" ToRole="Customer" />
           <NavigationProperty Name="EmployeeType" Relationship="Self.FK__Employee__3F466844" FromRole="Employee" ToRole="EmployeeType" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__5441852A" FromRole="Employee" ToRole="Orders" />
-          <NavigationProperty Name="RoutePlans" Relationship="Self.FK__RoutePlan__5CD6CB2B" FromRole="Employee" ToRole="RoutePlan" />
-          <NavigationProperty Name="SaleTargets" Relationship="Self.FK__SaleTarget__5FB337D6" FromRole="Employee" ToRole="SaleTarget" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__571DF1D5" FromRole="Employee" ToRole="Orders" />
+          <NavigationProperty Name="RoutePlans" Relationship="Self.FK__RoutePlan__5FB337D6" FromRole="Employee" ToRole="RoutePlan" />
+          <NavigationProperty Name="SaleTargets" Relationship="Self.FK__SaleTarget__628FA481" FromRole="Employee" ToRole="SaleTarget" />
         </EntityType>
         <EntityType Name="EmployeeType">
           <Key>
@@ -617,9 +617,9 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="LineType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="ProdID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SellingQuantity" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="ProductInSite" Relationship="Self.FK__OrderDetail__5812160E" FromRole="OrderDetail" ToRole="ProductInSite" />
-          <NavigationProperty Name="Order" Relationship="Self.FK__OrderDetail__59063A47" FromRole="OrderDetail" ToRole="Orders" />
+          <Property Name="UnitPrice" Type="Double" />
+          <NavigationProperty Name="ProductInSite" Relationship="Self.FK__OrderDetail__5AEE82B9" FromRole="OrderDetail" ToRole="ProductInSite" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__OrderDetail__5BE2A6F2" FromRole="OrderDetail" ToRole="Orders" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -635,10 +635,10 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="NeedByDate" Type="DateTime" Precision="0" />
           <Property Name="RequestDate" Type="DateTime" Precision="0" />
           <Property Name="OrderStatus" Type="Int32" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK__Orders__534D60F1" FromRole="Orders" ToRole="Customer" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__Orders__5441852A" FromRole="Orders" ToRole="Employee" />
-          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDetail__59063A47" FromRole="Orders" ToRole="OrderDetail" />
-          <NavigationProperty Name="StatusType" Relationship="Self.FK__Orders__OrderSta__5535A963" FromRole="Orders" ToRole="StatusType" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Orders__5629CD9C" FromRole="Orders" ToRole="Customer" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Orders__571DF1D5" FromRole="Orders" ToRole="Employee" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDetail__5BE2A6F2" FromRole="Orders" ToRole="OrderDetail" />
+          <NavigationProperty Name="StatusType" Relationship="Self.FK__Orders__OrderSta__5812160E" FromRole="Orders" ToRole="StatusType" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -649,11 +649,11 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="PGroupID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
           <Property Name="ProdID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProdName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="UnitPrice" Type="Double" />
           <Property Name="UOM" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="DateUpdate" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="ProductGroup" Relationship="Self.FK__Product__47DBAE45" FromRole="Product" ToRole="ProductGroup" />
-          <NavigationProperty Name="ProductInSites" Relationship="Self.FK__ProductInSite__4E88ABD4" FromRole="Product" ToRole="ProductInSite" />
+          <NavigationProperty Name="ProductGroup" Relationship="Self.FK__Product__4AB81AF0" FromRole="Product" ToRole="ProductGroup" />
+          <NavigationProperty Name="ProductInSites" Relationship="Self.FK__ProductInSite__5165187F" FromRole="Product" ToRole="ProductInSite" />
         </EntityType>
         <EntityType Name="ProductGroup">
           <Key>
@@ -663,8 +663,8 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="CompID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PGroupID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PGdescription" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Company" Relationship="Self.FK__ProductGr__CompI__44FF419A" FromRole="ProductGroup" ToRole="Company" />
-          <NavigationProperty Name="Products" Relationship="Self.FK__Product__47DBAE45" FromRole="ProductGroup" ToRole="Product" />
+          <NavigationProperty Name="Company" Relationship="Self.FK__ProductGr__CompI__47DBAE45" FromRole="ProductGroup" ToRole="Company" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__4AB81AF0" FromRole="ProductGroup" ToRole="Product" />
         </EntityType>
         <EntityType Name="ProductInSite">
           <Key>
@@ -675,11 +675,11 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="CompID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SiteID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProdID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Quatity" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="UOM" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDetail__5812160E" FromRole="ProductInSite" ToRole="OrderDetail" />
-          <NavigationProperty Name="Product" Relationship="Self.FK__ProductInSite__4E88ABD4" FromRole="ProductInSite" ToRole="Product" />
-          <NavigationProperty Name="Site" Relationship="Self.FK__ProductInSite__4D94879B" FromRole="ProductInSite" ToRole="Site" />
+          <Property Name="Quatity" Type="Double" />
+          <Property Name="UOM" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDetail__5AEE82B9" FromRole="ProductInSite" ToRole="OrderDetail" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__ProductInSite__5165187F" FromRole="ProductInSite" ToRole="Product" />
+          <NavigationProperty Name="Site" Relationship="Self.FK__ProductInSite__5070F446" FromRole="ProductInSite" ToRole="Site" />
         </EntityType>
         <EntityType Name="RoutePlan">
           <Key>
@@ -695,8 +695,8 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="Prioritize" Type="Int32" />
           <Property Name="Visited" Type="Boolean" />
           <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK__RoutePlan__5BE2A6F2" FromRole="RoutePlan" ToRole="Customer" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__RoutePlan__5CD6CB2B" FromRole="RoutePlan" ToRole="Employee" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__RoutePlan__5EBF139D" FromRole="RoutePlan" ToRole="Customer" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__RoutePlan__5FB337D6" FromRole="RoutePlan" ToRole="Employee" />
         </EntityType>
         <EntityType Name="SaleTarget">
           <Key>
@@ -709,7 +709,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="YearTarget" Type="Int32" />
           <Property Name="TargetQty" Type="Int32" />
           <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__SaleTarget__5FB337D6" FromRole="SaleTarget" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__SaleTarget__628FA481" FromRole="SaleTarget" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Site">
           <Key>
@@ -726,7 +726,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Company" Relationship="Self.FK__Site__CompID__398D8EEE" FromRole="Site" ToRole="Company" />
-          <NavigationProperty Name="ProductInSites" Relationship="Self.FK__ProductInSite__4D94879B" FromRole="Site" ToRole="ProductInSite" />
+          <NavigationProperty Name="ProductInSites" Relationship="Self.FK__ProductInSite__5070F446" FromRole="Site" ToRole="ProductInSite" />
         </EntityType>
         <EntityType Name="StatusType">
           <Key>
@@ -734,9 +734,9 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           </Key>
           <Property Name="STypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="STypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__OrderSta__5535A963" FromRole="StatusType" ToRole="Orders" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__OrderSta__5812160E" FromRole="StatusType" ToRole="Orders" />
         </EntityType>
-        <Association Name="FK__Account__4AB81AF0">
+        <Association Name="FK__Account__4D94879B">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -762,7 +762,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductGr__CompI__44FF419A">
+        <Association Name="FK__ProductGr__CompI__47DBAE45">
           <End Role="Company" Type="Self.Company" Multiplicity="1" />
           <End Role="ProductGroup" Type="Self.ProductGroup" Multiplicity="*" />
           <ReferentialConstraint>
@@ -800,7 +800,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__534D60F1">
+        <Association Name="FK__Orders__5629CD9C">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -814,7 +814,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RoutePlan__5BE2A6F2">
+        <Association Name="FK__RoutePlan__5EBF139D">
           <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
           <End Role="RoutePlan" Type="Self.RoutePlan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -842,7 +842,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__5441852A">
+        <Association Name="FK__Orders__571DF1D5">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -856,7 +856,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RoutePlan__5CD6CB2B">
+        <Association Name="FK__RoutePlan__5FB337D6">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="RoutePlan" Type="Self.RoutePlan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -870,7 +870,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SaleTarget__5FB337D6">
+        <Association Name="FK__SaleTarget__628FA481">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="SaleTarget" Type="Self.SaleTarget" Multiplicity="*" />
           <ReferentialConstraint>
@@ -884,7 +884,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDetail__5812160E">
+        <Association Name="FK__OrderDetail__5AEE82B9">
           <End Role="ProductInSite" Type="Self.ProductInSite" Multiplicity="1" />
           <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -900,7 +900,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDetail__59063A47">
+        <Association Name="FK__OrderDetail__5BE2A6F2">
           <End Role="Orders" Type="Self.Order" Multiplicity="1" />
           <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -914,7 +914,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__OrderSta__5535A963">
+        <Association Name="FK__Orders__OrderSta__5812160E">
           <End Role="StatusType" Type="Self.StatusType" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -926,7 +926,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Product__47DBAE45">
+        <Association Name="FK__Product__4AB81AF0">
           <End Role="ProductGroup" Type="Self.ProductGroup" Multiplicity="0..1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -940,7 +940,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductInSite__4E88ABD4">
+        <Association Name="FK__ProductInSite__5165187F">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="ProductInSite" Type="Self.ProductInSite" Multiplicity="*" />
           <ReferentialConstraint>
@@ -954,7 +954,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductInSite__4D94879B">
+        <Association Name="FK__ProductInSite__5070F446">
           <End Role="Site" Type="Self.Site" Multiplicity="1" />
           <End Role="ProductInSite" Type="Self.ProductInSite" Multiplicity="*" />
           <ReferentialConstraint>
@@ -983,7 +983,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
           <EntitySet Name="SaleTargets" EntityType="Self.SaleTarget" />
           <EntitySet Name="Sites" EntityType="Self.Site" />
           <EntitySet Name="StatusTypes" EntityType="Self.StatusType" />
-          <AssociationSet Name="FK__Account__4AB81AF0" Association="Self.FK__Account__4AB81AF0">
+          <AssociationSet Name="FK__Account__4D94879B" Association="Self.FK__Account__4D94879B">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Account" EntitySet="Accounts" />
           </AssociationSet>
@@ -991,7 +991,7 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             <End Role="Company" EntitySet="Companies" />
             <End Role="EmployeeType" EntitySet="EmployeeTypes" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductGr__CompI__44FF419A" Association="Self.FK__ProductGr__CompI__44FF419A">
+          <AssociationSet Name="FK__ProductGr__CompI__47DBAE45" Association="Self.FK__ProductGr__CompI__47DBAE45">
             <End Role="Company" EntitySet="Companies" />
             <End Role="ProductGroup" EntitySet="ProductGroups" />
           </AssociationSet>
@@ -1003,11 +1003,11 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Customer" EntitySet="Customers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__534D60F1" Association="Self.FK__Orders__534D60F1">
+          <AssociationSet Name="FK__Orders__5629CD9C" Association="Self.FK__Orders__5629CD9C">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__RoutePlan__5BE2A6F2" Association="Self.FK__RoutePlan__5BE2A6F2">
+          <AssociationSet Name="FK__RoutePlan__5EBF139D" Association="Self.FK__RoutePlan__5EBF139D">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="RoutePlan" EntitySet="RoutePlans" />
           </AssociationSet>
@@ -1015,39 +1015,39 @@ warning 6013: The table/view 'SaleMobileAssistant.dbo.ConnectionConfig' does not
             <End Role="EmployeeType" EntitySet="EmployeeTypes" />
             <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__5441852A" Association="Self.FK__Orders__5441852A">
+          <AssociationSet Name="FK__Orders__571DF1D5" Association="Self.FK__Orders__571DF1D5">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__RoutePlan__5CD6CB2B" Association="Self.FK__RoutePlan__5CD6CB2B">
+          <AssociationSet Name="FK__RoutePlan__5FB337D6" Association="Self.FK__RoutePlan__5FB337D6">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="RoutePlan" EntitySet="RoutePlans" />
           </AssociationSet>
-          <AssociationSet Name="FK__SaleTarget__5FB337D6" Association="Self.FK__SaleTarget__5FB337D6">
+          <AssociationSet Name="FK__SaleTarget__628FA481" Association="Self.FK__SaleTarget__628FA481">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="SaleTarget" EntitySet="SaleTargets" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDetail__5812160E" Association="Self.FK__OrderDetail__5812160E">
+          <AssociationSet Name="FK__OrderDetail__5AEE82B9" Association="Self.FK__OrderDetail__5AEE82B9">
             <End Role="ProductInSite" EntitySet="ProductInSites" />
             <End Role="OrderDetail" EntitySet="OrderDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDetail__59063A47" Association="Self.FK__OrderDetail__59063A47">
+          <AssociationSet Name="FK__OrderDetail__5BE2A6F2" Association="Self.FK__OrderDetail__5BE2A6F2">
             <End Role="Orders" EntitySet="Orders" />
             <End Role="OrderDetail" EntitySet="OrderDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__OrderSta__5535A963" Association="Self.FK__Orders__OrderSta__5535A963">
+          <AssociationSet Name="FK__Orders__OrderSta__5812160E" Association="Self.FK__Orders__OrderSta__5812160E">
             <End Role="StatusType" EntitySet="StatusTypes" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Product__47DBAE45" Association="Self.FK__Product__47DBAE45">
+          <AssociationSet Name="FK__Product__4AB81AF0" Association="Self.FK__Product__4AB81AF0">
             <End Role="ProductGroup" EntitySet="ProductGroups" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductInSite__4E88ABD4" Association="Self.FK__ProductInSite__4E88ABD4">
+          <AssociationSet Name="FK__ProductInSite__5165187F" Association="Self.FK__ProductInSite__5165187F">
             <End Role="Product" EntitySet="Products" />
             <End Role="ProductInSite" EntitySet="ProductInSites" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductInSite__4D94879B" Association="Self.FK__ProductInSite__4D94879B">
+          <AssociationSet Name="FK__ProductInSite__5070F446" Association="Self.FK__ProductInSite__5070F446">
             <End Role="Site" EntitySet="Sites" />
             <End Role="ProductInSite" EntitySet="ProductInSites" />
           </AssociationSet>

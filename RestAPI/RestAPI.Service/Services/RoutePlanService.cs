@@ -15,9 +15,9 @@ namespace RestAPI.Service.Services
             return DB.SaveChanges();
         }
 
-        public int Delete(string id)
+        public int Delete(string CompID, string EmplID, int CustID, DateTime DatePlan)
         {
-            var result = DB.RoutePlans.Where(p => p.EmplID == id).FirstOrDefault();
+            var result = DB.RoutePlans.Where(p => p.EmplID == EmplID && p.CompID == CompID && p.CustID == CustID && p.DatePlan == DatePlan).FirstOrDefault();
             if (result == null)
             {
                 return -1;
@@ -36,18 +36,23 @@ namespace RestAPI.Service.Services
             return DB.RoutePlans.ToList();
         }
 
-        public int Put(RoutePlan _routePlan)
+        public int Put(RoutePlan _routePlan, string CompID, string EmplID, int CustID, DateTime DatePlan)
         {
-            var exitingRoutePlan = DB.RoutePlans.Where(p => p.EmplID == _routePlan.EmplID).FirstOrDefault();
+            var exitingRoutePlan = DB.RoutePlans.Where(p => p.EmplID == EmplID && p.CompID == CompID && p.CustID == CustID && p.DatePlan == DatePlan).FirstOrDefault();
             if (exitingRoutePlan != null)
             {
-                exitingRoutePlan.CompID = _routePlan.CompID;
-                exitingRoutePlan.EmplID = _routePlan.EmplID;
-                exitingRoutePlan.CustID = _routePlan.CustID;
-                exitingRoutePlan.DatePlan = _routePlan.DatePlan;
-                exitingRoutePlan.Prioritize = _routePlan.Prioritize;
-                exitingRoutePlan.Visited = _routePlan.Visited;
-                exitingRoutePlan.Note = _routePlan.Note;
+                DB.Entry(exitingRoutePlan).State = System.Data.Entity.EntityState.Deleted;
+
+                //exitingRoutePlan.CompID = _routePlan.CompID;
+                //exitingRoutePlan.EmplID = _routePlan.EmplID;
+                //exitingRoutePlan.CustID = _routePlan.CustID;
+                //exitingRoutePlan.DatePlan = _routePlan.DatePlan;
+                //exitingRoutePlan.Prioritize = _routePlan.Prioritize;
+                //exitingRoutePlan.Visited = _routePlan.Visited;
+                //exitingRoutePlan.Note = _routePlan.Note;
+
+
+                DB.RoutePlans.Add(_routePlan);
 
                 return DB.SaveChanges();
             }

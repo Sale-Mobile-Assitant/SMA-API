@@ -1,4 +1,5 @@
 ﻿using RestAPI.Data;
+using System;
 using System.Collections.Generic;
 
 namespace RestAPI.Service.Services
@@ -7,12 +8,12 @@ namespace RestAPI.Service.Services
     {
         int Add(RoutePlan _routePlan);
 
-        int Delete(string id);
+        int Delete(string CompID, string EmplID, int CustID, DateTime DatePlan);
 
         RoutePlan GetRoutePlan(string id);
 
         List<RoutePlan> GetRoutePlans();
 
-        int Put(RoutePlan _routePlan);
+        int Put(RoutePlan _routePlan, string CompID, string EmplID, int CustID, DateTime DatePlan);
     }
 }

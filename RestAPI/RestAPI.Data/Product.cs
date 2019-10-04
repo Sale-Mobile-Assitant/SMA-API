@@ -24,7 +24,7 @@ namespace RestAPI.Data
         public string PGroupID { get; set; }
         public string ProdID { get; set; }
         public string ProdName { get; set; }
-        public Nullable<decimal> UnitPrice { get; set; }
+        public Nullable<double> UnitPrice { get; set; }
         public string UOM { get; set; }
         public Nullable<System.DateTime> DateUpdate { get; set; }
     

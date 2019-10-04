@@ -7,7 +7,7 @@
         public string MyOrderID { get; set; }
         public string ProdID { get; set; }
         public decimal? SellingQuantity { get; set; }
-        public decimal? UnitPrice { get; set; }
+        public double? UnitPrice { get; set; }
         public int? OrderNum { get; set; }
         public int? OrderLine { get; set; }
         public string LineType { get; set; }

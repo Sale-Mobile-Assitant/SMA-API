@@ -23,7 +23,7 @@ namespace RestAPI.Data
         public string CompID { get; set; }
         public string SiteID { get; set; }
         public string ProdID { get; set; }
-        public Nullable<decimal> Quatity { get; set; }
+        public Nullable<double> Quatity { get; set; }
         public string UOM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

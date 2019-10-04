@@ -9,7 +9,7 @@ namespace RestAPI.Models
         public string PGroupID { get; set; }
         public string ProdID { get; set; }
         public string ProdName { get; set; }
-        public decimal? UnitPrice { get; set; }
+        public double? UnitPrice { get; set; }
         public string UOM { get; set; }
         public DateTime? DateUpdate { get; set; }
 

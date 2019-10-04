@@ -22,7 +22,7 @@ namespace RestAPI.Data
         public string LineType { get; set; }
         public string ProdID { get; set; }
         public Nullable<decimal> SellingQuantity { get; set; }
-        public Nullable<decimal> UnitPrice { get; set; }
+        public Nullable<double> UnitPrice { get; set; }
     
         public virtual ProductInSite ProductInSite { get; set; }
         public virtual Order Order { get; set; }

@@ -71,7 +71,8 @@ namespace RestAPI.Controllers
 
         [HttpPut]
         [ResponseType(typeof(IEnumerable<RoutePlanModel>))]
-        public IHttpActionResult Put(RoutePlan routePlan)
+        [Route("{CompID},{EmplID},{CustID},{DatePlan}")]
+        public IHttpActionResult Put(RoutePlan routePlan,string CompID,string EmplID,int CustID,DateTime DatePlan)
         {
             if (routePlan == null)
             {
@@ -82,7 +83,7 @@ namespace RestAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-            if (routePlanService.Put(routePlan) > 0)
+            if (routePlanService.Put(routePlan, CompID, EmplID, CustID, DatePlan) > 0)
             {
                 return Ok();
             }
@@ -90,15 +91,15 @@ namespace RestAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("{id}")]
+        [Route("{CompID},{EmplID},{CustID},{DatePlan}")]
         [ResponseType(typeof(IEnumerable<RoutePlanModel>))]
-        public IHttpActionResult Delete(string id)
+        public IHttpActionResult Delete(string CompID, string EmplID, int CustID, DateTime DatePlan)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            if (routePlanService.Delete(id) > 0)
+            if (routePlanService.Delete(CompID, EmplID, CustID, DatePlan) > 0)
             {
                 return Ok();
             }
