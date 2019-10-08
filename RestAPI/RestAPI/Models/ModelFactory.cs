@@ -41,6 +41,8 @@ namespace RestAPI.Models
                 ProductInSites = _site.ProductInSites.Select(p => Create(p))
             };
         }
+
+      
         public EmployeeTypeModel Create(EmployeeType _employeeType)
         {
             return new EmployeeTypeModel()
@@ -195,6 +197,16 @@ namespace RestAPI.Models
                 Quantity = _productInSite.Quatity,
                 UOM = _productInSite.UOM,
                 OrderDetails = _productInSite.OrderDetails.Select(o => Create(o))
+            };
+        }
+
+        public StatusTypeModel Create(StatusType _statusType)
+        {
+            return new StatusTypeModel()
+            {
+                STypeID = _statusType.STypeID,
+                STypeName = _statusType.STypeName,
+                Orders = _statusType.Orders.Select(o => Create(o))
             };
         }
     }

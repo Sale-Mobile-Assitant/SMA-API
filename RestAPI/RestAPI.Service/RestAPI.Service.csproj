@@ -130,6 +130,7 @@
     <Compile Include="Services\EmployeeTypeService.cs" />
     <Compile Include="Services\IProductInSiteService.cs" />
     <Compile Include="Services\ISiteService.cs" />
+    <Compile Include="Services\IStatusTypeService.cs" />
     <Compile Include="Services\ProductInSiteService.cs" />
     <Compile Include="Services\IAccountDBService.cs" />
     <Compile Include="Services\ICompanyService.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\RoutePlanService.cs" />
     <Compile Include="Services\SiteService.cs" />
+    <Compile Include="Services\StatusTypeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
